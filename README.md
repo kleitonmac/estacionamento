@@ -4,6 +4,8 @@ Este projeto é uma aplicação web desenvolvida com **Python** e **Django**, co
 
 ---
 
+<img src="/img/backend-img.png">
+
 ## 🔧 Tecnologias Utilizadas
 
 - Python 3.x

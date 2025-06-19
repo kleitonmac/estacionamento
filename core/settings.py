@@ -27,6 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'rest_framework_simplejwt',
+    
+    'authentication',
     'customers',
     'vehicles',
     'parking',
@@ -130,10 +135,10 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Parking Service",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    #"site_logo": "books/img/logo.png",
+    "site_logo": "images/site_logo.svg",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    #"login_logo": None,
+    "login_logo": "images/site_logo.svg",
 
     # Logo to use for login form in dark themes (defaults to login_logo)
     #"login_logo_dark": None,
@@ -142,10 +147,10 @@ JAZZMIN_SETTINGS = {
     #"site_logo_classes": "img-circle",
 
     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
-    #"site_icon": None,
+    "site_icon": "images/site_logotipo.svg",
 
     # Welcome text on the login screen
-    "welcome_sign": "Bem vindo ao Parking Service",
+    "welcome_sign": "Bem vindo ao Parking System",
 
     # Copyright on the footer
     "copyright": "Kdev LTDA",
@@ -155,7 +160,7 @@ JAZZMIN_SETTINGS = {
     #"search_model": ["auth.User", "auth.Group"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
-    #"user_avatar": None,
+    "user_avatar": None,
 
     ############
     # Top Menu #
@@ -269,4 +274,14 @@ JAZZMIN_SETTINGS = {
     # "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
     # # Add a language dropdown into the admin
     # "language_chooser": True,
+}
+
+#autenticação para as rotas de urls do django
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
