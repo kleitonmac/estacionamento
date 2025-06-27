@@ -7,7 +7,8 @@ from vehicles.serializers import VehicleSerializer, VehicleTypeSerializer
 class VehicleViewSet(viewsets.ModelViewSet):
     queryset = Vehicle.objects.all()
     serializer_class = VehicleSerializer
-    permission_classes = [DjangoModelPermissions, IsOwnerOfVehiclesOrRecord] # Estou permitindo a covifuracao de usaria feita http://127.0.0.1:8000/admin
+    permission_classes = [DjangoModelPermissions, IsOwnerOfVehiclesOrRecord] 
+    # Estou permitindo a config de usaria feita http://127.0.0.1:8000/admin
 
 class VehicleTypeViewSet(viewsets.ModelViewSet):
     queryset = VehicleType.objects.all()
